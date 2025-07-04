@@ -1,15 +1,15 @@
-import { useState } from "react";
-
 interface InputQueryProps {
     query: string;
     setQuery: (query: string) => void;
+    error: string | null;
+    setError: (error: string | null) => void;
     placeholder?: string;
     disabled?: boolean;
 }
 
 export const InputQuery = (props: InputQueryProps) => {
-    const { query, setQuery, placeholder = "Introduce tu consulta aqui", disabled = false } = props;
-    const [error, setError] = useState<string | null>(null);
+    const { query, setQuery, placeholder = "Introduce tu consulta aqui", disabled = false, error, setError } = props;
+
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const input = e.target.value;

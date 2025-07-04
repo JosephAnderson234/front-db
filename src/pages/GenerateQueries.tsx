@@ -2,10 +2,12 @@ import { Listable, ListableDatabase } from "@components/List";
 import { useState } from "react";
 import { DatabaseItem } from "@interfaces/Database";
 import { InputQuery } from "@components/Inputs";
+import { DataPaginatedCard } from "@components/Card";
 
 const GenerateQueriesPage = () => {
     const [databaseSelected, setDatabaseSelected] = useState<DatabaseItem| null>(null);
     const [query, setQuery] = useState<string>("");
+    const [error, setError] = useState<string | null>(null);
 
     return (
         <div className="flex flex-col items-center justify-center bg-gray-100">
@@ -15,10 +17,13 @@ const GenerateQueriesPage = () => {
                 <ListableDatabase selectedState={databaseSelected} onChange={setDatabaseSelected}/>
             </Listable>
 
-            <InputQuery query={query} setQuery={setQuery}/>
-            <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-                Generate Query
-            </button>
+            <InputQuery query={query} setQuery={setQuery} error={error} setError={setError}/>
+            
+            
+            
+            {databaseSelected && (
+                <DataPaginatedCard database={databaseSelected.name} query={query}/>
+            )}
         </div>
     );
 }
