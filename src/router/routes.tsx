@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import GenerateQueriesPage from "@pages/GenerateQueries";
+import PredefinedQuery from "@pages/PredefinedQuery";
 
 export const router = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"query/:queryKey",
-                element: <div>Query Page</div>,
+                element: <PredefinedQuery/>,
                 errorElement: <div>Error Page</div>,
             },
             {

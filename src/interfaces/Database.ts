@@ -29,7 +29,7 @@ export interface DatabaseQueryPredefined{
 
 
 export interface DatabaseRequestPredefined{
-    databse: string;
+    database: string;
     page: number;
     per_page: number;
 }
