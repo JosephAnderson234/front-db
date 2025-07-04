@@ -7,9 +7,10 @@ import { DatabaseItem } from "@interfaces/Database";
 const PredefinedQuery = () => {
     const location = useLocation();
     const queryKey = location.pathname.split("/").pop();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [queryResult, setQueryResult] = useState<any>(null);
     const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(10);
+    const perPage = 10; // Número de registros por página
     const [totalPages, setTotalPages] = useState(0); // Nuevo estado para el total de páginas
     const [loading, setLoading] = useState(false);
     const [databaseSelected, setDatabaseSelected] = useState<DatabaseItem|null>(null);
