@@ -8,6 +8,11 @@ export const router = createBrowserRouter([
         errorElement: <div>Error Page</div>,
         children:[
             {
+                path:"query/:queryKey",
+                element: <div>Query Page</div>,
+                errorElement: <div>Error Page</div>,
+            },
+            {
                 path: "about",
                 element: <div>About Page</div>,
                 errorElement: <div>Error Page</div>,

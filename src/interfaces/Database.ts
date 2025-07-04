@@ -35,6 +35,7 @@ export interface DatabaseRequestPredefined{
 }
 
 export interface DatabaseQueryResponsePredefined{
+    database: string;
     success: boolean;
     result:{
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,4 +47,18 @@ export interface DatabaseQueryResponsePredefined{
             total_pages: number;
         }
     }
+}
+
+export interface DatabaseQueryResponse{
+    database: string;
+    result: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: any[];
+        pagination: {
+            page: number;
+            per_page: number;
+            total_records: number;
+            total_pages: number;
+        };
+    };
 }
